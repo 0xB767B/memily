@@ -22,7 +22,7 @@ _rom_end   = 0x00007FFC;
 _stack_begin = 0x20001C00;
 _stack_end   = 0x20002000;
 
-__initial_stack_pointer = 0x20002000;
+__initialStackPointer = 0x20002000;
 
 MEMORY
 {
@@ -36,11 +36,14 @@ SECTIONS
   . = ALIGN(4);
 
   /* ISR vectors */
-  .isr_vector :
+/*  .isr_vector : */
+  .exception_vector :
   {
-    *(.isr_vector)
+/*    *(.isr_vector) */
+    *(.exception_vector)
     . = ALIGN(0x10);
-    KEEP(*(.isr_vector))
+/*    KEEP(*(.isr_vector)) */
+    KEEP(*(.exception_vector))
   } > ROM = 0xAAAA
 
   /* Program code (text), read-only data and static ctors */

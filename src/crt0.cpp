@@ -4,9 +4,10 @@ namespace crt
   void init_ctors();
 }
 
-extern "C" void __my_startup() __attribute__((used, noinline));
-
-void __my_startup()
+/* extern "C" void __my_startup() __attribute__((used, noinline)); */
+extern "C" void ResetHandler() __attribute__((used, noinline));
+/* void __my_startup() */
+void ResetHandler()
 {
   // Load the stack pointer.
   // The stack pointer is automatically loaded from
