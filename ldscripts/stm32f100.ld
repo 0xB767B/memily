@@ -39,11 +39,11 @@ SECTIONS
   /* Program code (text), read-only data and static ctors */
   .text :
   {
-    _ctors_begin = .;
+    _ctorsBegin = .;
     *(.init_array)
     . = ALIGN(4);
     KEEP (*(SORT(.init_array)))
-    _ctors_end = .;
+    _ctorsEnd = .;
     *(.text)
     . = ALIGN(4);
     *(.text*)
@@ -65,28 +65,28 @@ SECTIONS
   /* The ROM-to-RAM initialized data section */
   .data :
   {
-    _data_begin = .;
+    _dataBegin = .;
     *(.data)
     . = ALIGN(4);
     KEEP (*(.data))
     *(.data*)
     . = ALIGN(4);
     KEEP (*(.data*))
-    _data_end = .;
+    _dataEnd = .;
   } > RAM AT > ROM
 
   /* The uninitialized (zero-cleared) data section */
   .bss :
   {
-    _bss_begin = .;
+    _bssBegin = .;
     *(.bss)
     . = ALIGN(4);
     KEEP (*(.bss))
     *(.bss*)
     . = ALIGN(4);
     KEEP (*(.bss*))
-    _bss_end = .;
+    _bssEnd = .;
   } > RAM
 
-  _rom_data_begin = LOADADDR(.data);
+  _romDataBegin = LOADADDR(.data);
 }

@@ -26,7 +26,7 @@ __attribute__ ((section(".exception_vector")))
     0,// 0x0034
     PendSvHandler,// 0x0038
     SysTickHandler,// 0x003C
-  };  // exceptionVector
+  };
 }
 
 extern "C" void DefaultExceptionHandler()
@@ -36,12 +36,12 @@ extern "C" void DefaultExceptionHandler()
 }
 
 // core exceptions
-#pragma weak NmiHandler        = DefaultExceptionHandler
-#pragma weak HardFaultHandler  = DefaultExceptionHandler
-#pragma weak MemManageHandler  = DefaultExceptionHandler
-#pragma weak BusFaultHandler   = DefaultExceptionHandler
+#pragma weak NmiHandler = DefaultExceptionHandler
+#pragma weak HardFaultHandler = DefaultExceptionHandler
+#pragma weak MemManageHandler = DefaultExceptionHandler
+#pragma weak BusFaultHandler = DefaultExceptionHandler
 #pragma weak UsageFaultHandler = DefaultExceptionHandler
-#pragma weak SVCallHandler     = DefaultExceptionHandler
-#pragma weak DebugMonHandler   = DefaultExceptionHandler
-#pragma weak PendSvHandler     = DefaultExceptionHandler
-#pragma weak SysTickHandler    = DefaultExceptionHandler
+#pragma weak SVCallHandler = DefaultExceptionHandler
+#pragma weak DebugMonHandler = DefaultExceptionHandler
+#pragma weak PendSvHandler = DefaultExceptionHandler
+#pragma weak SysTickHandler = DefaultExceptionHandler
