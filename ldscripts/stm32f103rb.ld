@@ -1,6 +1,6 @@
-/* beginning and end of the program rom area */
+/* beginning and end of the program rom area (128K)*/
 _rom_begin = 0x00000000;
-_rom_end   = 0x00007FFC;
+_rom_end   = 0x0001FFFC;
 
 /* beginning and end (i.e., top) of the stack */
 /* Set up a stack with a size of 1K */
@@ -11,7 +11,7 @@ __initialStackPointer = 0x20002000;
 
 MEMORY
 {
-  ROM(rx)  : ORIGIN = 0x08000000, LENGTH = 32K - 4
+  ROM(rx)  : ORIGIN = 0x08000000, LENGTH = 128K - 4
   RAM(rwx) : ORIGIN = 0x20000000, LENGTH = 0x1C00
 }
 
