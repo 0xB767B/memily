@@ -1,13 +1,8 @@
-INPUT(libc.a libm.a libgcc.a)
-
-OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
-OUTPUT_ARCH(arm)
-
-/* The beginning and end of the program ROM area */
+/* beginning and end of the program rom area */
 _rom_begin = 0x00000000;
 _rom_end   = 0x00007FFC;
 
-/* The beginning and end (i.e., top) of the stack */
+/* beginning and end (i.e., top) of the stack */
 /* Set up a stack with a size of 1K */
 _stack_begin = 0x20001C00;
 _stack_end   = 0x20002000;
@@ -16,7 +11,7 @@ __initialStackPointer = 0x20002000;
 
 MEMORY
 {
-  ROM(rx)  : ORIGIN = 0x00000000, LENGTH = 32K - 4
+  ROM(rx)  : ORIGIN = 0x08000000, LENGTH = 32K - 4
   RAM(rwx) : ORIGIN = 0x20000000, LENGTH = 0x1C00
 }
 
@@ -25,18 +20,15 @@ SECTIONS
   . = 0x00000000;
   . = ALIGN(4);
 
-  /* ISR vectors */
-/*  .isr_vector : */
+  /* exception vectors */
   .exception_vector :
   {
-/*    *(.isr_vector) */
     *(.exception_vector)
     . = ALIGN(0x10);
-/*    KEEP(*(.isr_vector)) */
     KEEP(*(.exception_vector))
   } > ROM = 0xAAAA
 
-  /* Program code (text), read-only data and static ctors */
+  /* program code (text), read-only data and static ctors */
   .text :
   {
     _ctorsBegin = .;
@@ -62,7 +54,7 @@ SECTIONS
   . = 0x20000000;
   . = ALIGN(4);
 
-  /* The ROM-to-RAM initialized data section */
+  /* rom-to-ram initialized data section */
   .data :
   {
     _dataBegin = .;
@@ -75,7 +67,7 @@ SECTIONS
     _dataEnd = .;
   } > RAM AT > ROM
 
-  /* The uninitialized (zero-cleared) data section */
+  /* uninitialized (zero-cleared) data section */
   .bss :
   {
     _bssBegin = .;

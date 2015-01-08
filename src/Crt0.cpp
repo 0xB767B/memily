@@ -14,10 +14,6 @@ void ResetHandler()
   // TODO mcal::wdg::secure::trigger();
 
   // call main (and hopefully never return)
-  asm volatile("ldr r3, =main");
-  asm volatile("blx r3");
-
-  for(;;)
-  {
-  }
+  asm volatile("b main");
+  while(1);
 }
