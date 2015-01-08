@@ -5,6 +5,8 @@ namespace crt
 }
 
 extern "C" void ResetHandler() __attribute__((used, noinline));
+extern "C" int main();
+
 void ResetHandler()
 {
   // TODO  mcal::cpu::init();
@@ -14,6 +16,7 @@ void ResetHandler()
   // TODO mcal::wdg::secure::trigger();
 
   // call main (and hopefully never return)
-  asm volatile("b main");
+  //asm volatile("b main");
+  main();
   while(1);
 }
