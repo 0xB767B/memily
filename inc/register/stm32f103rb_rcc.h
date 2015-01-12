@@ -84,13 +84,5 @@ struct rcc {
     static constexpr unsigned addr = base_addr + 0x24;
     // TODO implement
   };
-
-
 };
 }
-
-/*
-    using  = reg_t<ro_t, addr, , >;
-    using  = reg_t<wo_t, addr, , >;
-    using  = reg_t<rw_t, addr, , >;
- */
