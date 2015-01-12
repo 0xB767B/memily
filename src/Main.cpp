@@ -7,15 +7,19 @@ int main()
   static int foo;
   foo = 2;
 
-  using Iopaen = stm32f103rb::rcc::apb2enr::iopaen;
-  Iopaen iopaen;
-  iopaen.write(1);
+  stm32f103rb::rcc::apb2enr::iopaen::write(1);
 
-  using Gpioa = stm32f103rb::gpio<0>::crl<5>::mode::write(1);
-  using Gpioa = stm32f103rb::gpio<0>::crl<5>::cnf::write(0);
+  stm32f103rb::gpio<0>::crl<5>::mode::write(1);
+  stm32f103rb::gpio<0>::crl<5>::cnf::write(0);
+
+  stm32f103rb::gpio<0>::odr<5>::odry::write(1);
+
+
 
 
   while(1) {
 	foo *= foo;
+    stm32f103rb::gpio<0>::odr<5>::odry::write(0);
+	stm32f103rb::gpio<0>::odr<5>::odry::write(1);
   }
 }
