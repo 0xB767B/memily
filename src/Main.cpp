@@ -10,13 +10,12 @@ int main()
 
   iopaen::write(1);
 
-  using mode = stm32f103rb::gpio<0>::pin<5>::mode;
-  using cnf = stm32f103rb::gpio<0>::pin<5>::cnf;
+  using mode = stm32f103rb::gpio<stm32f103rb::gpioa>::pin<5>::mode;
+  using cnf = stm32f103rb::gpio<stm32f103rb::gpioa>::pin<5>::cnf;
+  using odr = stm32f103rb::gpio<stm32f103rb::gpioa>::pin<5>::odr;
 
   mode::write(1);
   cnf::write(0);
-
-  using odr = stm32f103rb::gpio<0>::pin<5>::odr;
 
   while(1) {
 	  foo *= foo;

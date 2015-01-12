@@ -4,11 +4,19 @@
 #include "register/wo_t.h"
 
 namespace stm32f103rb {
-template<int which_gpio>
-struct gpio {
-  static_assert(0 <= which_gpio && which_gpio <= 7, "invalid gpio");
-  static constexpr unsigned base_addr = 0x40010800 + 0x400 * which_gpio;
+  enum gpio_name : unsigned int {
+    gpioa = 0,
+    gpiob,
+    gpioc,
+    gpiod,
+    gpioe,
+    gpiof,
+    gpiog,
+  };
 
+template<gpio_name which_gpio>
+struct gpio {
+  static constexpr unsigned base_addr = 0x40010800 + 0x400 * which_gpio;
   template <int which_pin>
   struct pin {
     static_assert(0 <= which_pin && which_pin <= 15, "invalid pin");
