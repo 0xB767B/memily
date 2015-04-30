@@ -5,8 +5,4 @@ set(SYS_CORTEX_M3_SOURCES
     Exception.cpp
    )
 
-#include_directories(
-#    ${SYS_LIB_DIR}
-#    )
-
 add_library(${SYS_LIB_NAME} ${SYS_CORTEX_M3_SOURCES})

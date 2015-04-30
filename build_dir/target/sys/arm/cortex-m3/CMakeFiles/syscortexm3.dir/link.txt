@@ -1,0 +1,2 @@
+/home/borealis/bin/toolchains/arm/gcc-arm-none-eabi-4_9-2014q4/bin/arm-none-eabi-ar cr libsyscortexm3.a  CMakeFiles/syscortexm3.dir/Crt0.cpp.obj CMakeFiles/syscortexm3.dir/Crt0InitRam.cpp.obj CMakeFiles/syscortexm3.dir/Crt1.cpp.obj CMakeFiles/syscortexm3.dir/Exception.cpp.obj
+/home/borealis/bin/toolchains/arm/gcc-arm-none-eabi-4_9-2014q4/bin/arm-none-eabi-ranlib libsyscortexm3.a

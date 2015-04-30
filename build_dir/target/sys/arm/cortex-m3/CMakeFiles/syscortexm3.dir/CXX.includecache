@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Crt0.cpp
+
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Crt0InitRam.cpp
+algorithm
+-
+cstddef
+-
+cstdint
+-
+
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Crt1.cpp
+algorithm
+-
+iterator
+-
+
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Exception.cpp
+Exception.h
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Exception.h
+
+/home/borealis/git/memily/target/sys/arm/cortex-m3/Exception.h
+

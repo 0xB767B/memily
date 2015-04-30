@@ -1,5 +1,5 @@
-#include "register/stm32f103rb_rcc.h"
-#include "register/stm32f103rb_gpio.h"
+#include "stm32f103rb_rcc.h"
+#include "stm32f103rb_gpio.h"
 
 int main()
 {
