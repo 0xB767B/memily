@@ -1,2 +1,0 @@
-/home/borealis/git/memily/build_dir/examples/blinky/CMakeFiles/blinky.dir
-/home/borealis/git/memily/build_dir/target/sys/arm/cortex-m3/CMakeFiles/syscortexm3.dir
