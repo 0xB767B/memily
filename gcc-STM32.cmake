@@ -1,7 +1,8 @@
 INCLUDE(CMakeForceCompiler)
 
 if(NOT TOOLCHAIN_PREFIX)
-  set(TOOLCHAIN_PREFIX "/home/borealis/bin/toolchains/arm/gcc-arm-none-eabi-4_9-2014q4")
+  #set(TOOLCHAIN_PREFIX "/home/borealis/bin/toolchains/arm/gcc-arm-none-eabi-4_9-2014q4")
+  set(TOOLCHAIN_PREFIX "/home/sul/bin/toolchains/arm/gcc-arm-none-eabi-4_9-2015q2")
   message(STATUS "No TOOLCHAIN_PREFIX specified, using default: " ${TOOLCHAIN_PREFIX})
 endif()
 
@@ -41,7 +42,8 @@ set(CMAKE_C_FLAGS "-mthumb -fno-builtin -mcpu=cortex-m3 -Wall -std=gnu99 -ffunct
 #set(CMAKE_CXX_FLAGS "-mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wpadded -Wshadow -Wlogical-op -Wfloat-equal -g3 -DDEBUG -DTRACE -DOS_USE_TRACE_SEMIHOSTING_STDOUT -std=gnu++11 -fabi-version=0 -fno-exceptions -fno-rtti -fno-use-cxa-atexit -fno-threadsafe-statics -Wabi -Wctor-dtor-privacy -Wnoexcept -Wnon-virtual-dtor -Wstrict-null-sentinel -Wsign-promo " CACHE INTERNAL "cxx compiler flags")
 #set(CMAKE_ASM_FLAGS "-mthumb -mcpu=cortex-m3" CACHE INTERNAL "asm compiler flags")
 
-set(CMAKE_EXE_LINKER_FLAGS "-T/home/borealis/git/memily/target/mcu/st/stm32f103rb/stm32f103rb.ld -nostartfiles -Xlinker --gc-sections --specs=nano.specs" CACHE INTERNAL "executable linker flags")
+#set(CMAKE_EXE_LINKER_FLAGS "-T/home/borealis/git/memily/target/mcu/st/stm32f103rb/stm32f103rb.ld -nostartfiles -Xlinker --gc-sections --specs=nano.specs" CACHE INTERNAL "executable linker flags")
+set(CMAKE_EXE_LINKER_FLAGS "-T/home/sul/git/memily/target/mcu/st/stm32f103rb/stm32f103rb.ld -nostartfiles -Xlinker --gc-sections --specs=nano.specs" CACHE INTERNAL "executable linker flags")
 set(CMAKE_MODULE_LINKER_FLAGS "-mthumb -mcpu=cortex-m3 -mabi=aapcs" CACHE INTERNAL "module linker flags")
 #set(CMAKE_SHARED_LINKER_FLAGS "-mthumb -mcpu=cortex-m3 -mabi=aapcs" CACHE INTERNAL "shared linker flags")
 
