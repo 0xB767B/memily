@@ -3,7 +3,7 @@ project(memily)
 cmake_minimum_required(VERSION 2.8)
 
 # Turn ON/OFF verbose output
-set(CMAKE_VERBOSE_MAKEFILE OFF)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(CMAKE_TOOLCHAIN_FILE "gcc-STM32.cmake")
 
