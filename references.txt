@@ -1,0 +1,11 @@
+cmake for stm32:
+https://github.com/ObKo/stm32-cmake
+
+bare cortex M:
+https://github.com/JorgeAparicio/bareCortexM
+
+
+embedded template libraries:
+https://github.com/cbiffle/etl
+https://github.com/cbiffle/etl-test
+https://github.com/JorgeAparicio/libstm32pp
