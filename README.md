@@ -1,3 +1,7 @@
+cmake ../memily -DCMAKE_MODULE_PATH=/home/sul/git/memily/cmake -DCMAKE_TOOLCHAIN_FILE=../memily/cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -G"Eclipse CDT4 - Unix Makefiles" -DCMAKE_ECLIPSE_EXECUTABLE=/home/sul/git/embcdt/linux/eclipse/eclipse
+
+
+
 
 cmake .. -DCMAKE_TOOLCHAIN_FILE=../gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG
 
