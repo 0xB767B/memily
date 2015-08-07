@@ -38,7 +38,9 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-set(CMAKE_EXE_LINKER_FLAGS "-T/home/sul/git/memily/target/mcu/st/stm32f103rb/stm32f103rb.ld -nostartfiles -Xlinker --gc-sections --specs=nano.specs" CACHE INTERNAL "executable linker flags")
+set(MY_MAP_FILE_NAME "xyz.map")
+
+set(CMAKE_EXE_LINKER_FLAGS "-T/home/sul/git/memily/target/mcu/st/stm32f103rb/stm32f103rb.ld -nostartfiles -Xlinker --gc-sections --specs=nano.specs -Wl,-Map,${MY_MAP_FILE_NAME}" CACHE INTERNAL "executable linker flags")
 set(CMAKE_MODULE_LINKER_FLAGS "-mthumb -mcpu=cortex-m3 -mabi=aapcs" CACHE INTERNAL "module linker flags")
 
 

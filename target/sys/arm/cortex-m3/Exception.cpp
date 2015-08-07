@@ -8,7 +8,7 @@ extern "C" void ResetHandler();
 extern "C" void DefaultExceptionHandler();
 
 namespace exception {
-__attribute__ ((section(".exception_vector")))
+__attribute__ ((section(".exception_vector"),used))
     pvf exceptionVector[] = {
     pvf(&__initialStackPointer),
     ResetHandler,// 0x0004

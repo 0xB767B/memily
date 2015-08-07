@@ -15,9 +15,11 @@ MEMORY
   RAM(rwx) : ORIGIN = 0x20000000, LENGTH = 0x1C00
 }
 
+ENTRY(ResetHandler)
+
 SECTIONS
 {
-  . = 0x00000000;
+  . = 0x08000000;
   . = ALIGN(4);
 
   /* exception vectors */
@@ -26,7 +28,7 @@ SECTIONS
     *(.exception_vector)
     . = ALIGN(0x10);
     KEEP(*(.exception_vector))
-  } > ROM = 0xAAAA
+  } > ROM
 
   /* program code (text), read-only data and static ctors */
   .text :
