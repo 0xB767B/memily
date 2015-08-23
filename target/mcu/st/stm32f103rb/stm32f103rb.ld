@@ -19,20 +19,14 @@ ENTRY(ResetHandler)
 
 SECTIONS
 {
-  . = 0x08000000;
   . = ALIGN(4);
-
-  /* exception vectors */
-  .exception_vector :
-  {
-    *(.exception_vector)
-    . = ALIGN(0x10);
-    KEEP(*(.exception_vector))
-  } > ROM
 
   /* program code (text), read-only data and static ctors */
   .text :
   {
+    KEEP(libsyscortexm3.a:*(.exception_vector))
+/*    . = 0x080000ED; */
+    _VECTORS_END = .;
     _ctorsBegin = .;
     *(.init_array)
     . = ALIGN(4);
@@ -48,10 +42,6 @@ SECTIONS
     . = ALIGN(4);
   } > ROM
 
-  .text :
-  {
-    . = ALIGN(0x10);
-  } > ROM = 0xAAAA
 
   . = 0x20000000;
   . = ALIGN(4);
