@@ -1,7 +1,7 @@
 INCLUDE(CMakeForceCompiler)
 
 if(NOT TOOLCHAIN_PREFIX)
-  set(TOOLCHAIN_PREFIX "/home/sul/git/embcdt/linux/toolchain/gcc-arm-none-eabi-4_9-2015q2")
+  set(TOOLCHAIN_PREFIX "/home/sul/devel/toolchains/gcc-arm-none-eabi-4_9-2015q2/")
   message(STATUS "No TOOLCHAIN_PREFIX specified, using default: " ${TOOLCHAIN_PREFIX})
 endif()
 
