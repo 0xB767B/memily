@@ -3,7 +3,7 @@ project(memily)
 cmake_minimum_required(VERSION 2.8)
 
 # Turn ON/OFF verbose output
-set(CMAKE_VERBOSE_MAKEFILE OFF)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(SYS_LIB_DIR ${PROJECT_SOURCE_DIR}/target/sys/arm/cortex-m3)
 set(SYS_LIB_NAME syscortexm3)
