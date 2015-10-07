@@ -20,6 +20,8 @@ http://docs.oracle.com/cd/E19683-01/817-1974/6mhlu8fdh/index.html
 ## ELF Special Sections ##
 http://refspecs.linuxbase.org/LSB_3.0.0/LSB-PDA/LSB-PDA/specialsections.html
 
+## Sections ##
+http://www.sco.com/developers/gabi/latest/ch4.sheader.html
 
 
 # README #
