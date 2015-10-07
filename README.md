@@ -6,6 +6,20 @@ cmake ../memily -DCMAKE_MODULE_PATH=/home/sul/git/memily/cmake -DCMAKE_TOOLCHAIN
 cmake .. -DCMAKE_TOOLCHAIN_FILE=../gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG
 
 
+# Linker-Script, Startup, etc. #
+
+## Understanding the __libc_init_array ##
+http://stackoverflow.com/questions/15265295/understanding-the-libc-init-array
+
+## newlib ##
+http://newlib.sourcearchive.com/documentation/1.18.0/init_8c-source.html
+
+## Linker and Libraries Guide - Initialization and Termination Routines ##
+http://docs.oracle.com/cd/E19683-01/817-1974/6mhlu8fdh/index.html
+
+## ELF Special Sections ##
+http://refspecs.linuxbase.org/LSB_3.0.0/LSB-PDA/LSB-PDA/specialsections.html
+
 
 
 # README #
