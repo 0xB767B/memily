@@ -1,6 +1,6 @@
 /* beginning and end of the program rom area (128K)*/
-_rom_begin = 0x00000000;
-_rom_end   = 0x0001FFFC;
+/* _rom_begin = 0x00000000; */
+/* _rom_end   = 0x0001FFFC; */
 
 /* beginning and end (i.e., top) of the stack */
 /* Set up a stack with a size of 1K */
@@ -22,8 +22,8 @@ SECTIONS
   /* program code (text), read-only data and static ctors */
   .text :
   {
-    KEEP(libsyscortexm3.a:*(.exception_vector))
-/*    . = 0x080000ED; */
+    KEEP(*(.exception_vector))
+    /* . = 0x080000ED; todo: temporary. should be correctly aligned by adding interrupt-vectors for mcu */
     _VECTORS_END = .;
     _ctorsBegin = .;
     *(.init_array)
