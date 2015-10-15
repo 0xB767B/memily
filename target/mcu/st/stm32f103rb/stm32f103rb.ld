@@ -19,8 +19,6 @@ ENTRY(ResetHandler)
 
 SECTIONS
 {
-  . = ALIGN(4);
-
   /* program code (text), read-only data and static ctors */
   .text :
   {
