@@ -1,3 +1,7 @@
+# functions to handle global source-collecting
+# inspired by: http://stackoverflow.com/questions/31538466/keeping-file-hierarchy-across-subdirectories-in-cmake
+
+
 # function collects sources in global property GlobalSourceList
 function(collect_sources)
     foreach(_source IN ITEMS ${ARGN})
