@@ -1,6 +1,11 @@
-# functions to handle global source-collecting
-# inspired by: http://stackoverflow.com/questions/31538466/keeping-file-hierarchy-across-subdirectories-in-cmake
-
+#
+# Functions to handle global source-collecting
+# inspired by:
+# http://stackoverflow.com/questions/31538466/keeping-file-hierarchy-across-subdirectories-in-cmake
+#
+# A more sophisticated solution could be found here:
+# https://github.com/ruslo/sugar/wiki/Collecting-sources
+#
 
 # function collects sources in global property GlobalSourceList
 function(collect_sources)
