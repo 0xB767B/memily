@@ -25,11 +25,11 @@ SECTIONS
     KEEP(*(.exception_vector))
     /* . = 0x080000ED; todo: temporary. should be correctly aligned by adding interrupt-vectors for mcu */
     _VECTORS_END = .;
-    _ctorsBegin = .;
+    _ctors_begin = .;
     *(.init_array)
     . = ALIGN(4);
     KEEP (*(SORT(.init_array)))
-    _ctorsEnd = .;
+    _ctors_end = .;
     *(.text)
     . = ALIGN(4);
     *(.text*)
