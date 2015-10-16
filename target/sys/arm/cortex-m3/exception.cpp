@@ -4,14 +4,14 @@ extern char __initialStackPointer;
 
 typedef void (* pvf)();
 
-extern "C" void ResetHandler();
+extern "C" void reset_handler();
 extern "C" void DefaultExceptionHandler();
 
 namespace exception {
     __attribute__ ((section(".exception_vector"),used))
     pvf exceptionVector[] = {
             pvf(&__initialStackPointer),
-            ResetHandler,// 0x0004
+            reset_handler,// 0x0004
             NmiHandler,// 0x0008
             HardFaultHandler,// 0x000C
             MemManageHandler,// 0x0010
