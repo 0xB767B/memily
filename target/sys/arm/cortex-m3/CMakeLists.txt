@@ -1,6 +1,6 @@
 collect_sources(
-    Crt0.cpp
-    Crt0InitRam.cpp
-    Crt1.cpp
-    Exception.cpp
+        crt0.cpp
+        crt0_init_ram.cpp
+        crt1.cpp
+        exception.cpp
    )
