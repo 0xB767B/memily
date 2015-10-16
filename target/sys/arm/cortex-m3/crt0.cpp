@@ -1,13 +1,13 @@
 namespace crt
 {
-  void InitRam();
-  void InitCtors();
+    void InitRam();
+    void InitCtors();
 }
 
-extern "C" void reset_handler() __attribute__((used, noinline));
+extern "C" void ResetHandler() __attribute__((used, noinline));
 extern "C" int main();
 
-void reset_handler()
+void ResetHandler()
 {
   // TODO  mcal::cpu::init();
   crt::InitRam();
