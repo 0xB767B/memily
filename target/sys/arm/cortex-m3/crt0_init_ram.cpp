@@ -13,10 +13,10 @@ extern "C"
 
 namespace crt
 {
-  void InitRam();
+  void init_ram();
 }
 
-void crt::InitRam()
+void crt::init_ram()
 {
   typedef std::uint32_t MemoryAlignedType;
 

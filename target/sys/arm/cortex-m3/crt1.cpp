@@ -15,10 +15,10 @@ extern "C"
 
 namespace crt
 {
-  void InitCtors();
+  void init_ctors();
 }
 
-void crt::InitCtors()
+void crt::init_ctors()
 {
   std::for_each(CtorType::ConstReverseIterator(_ctorsEnd),
 		  CtorType::ConstReverseIterator(_ctorsBegin),
