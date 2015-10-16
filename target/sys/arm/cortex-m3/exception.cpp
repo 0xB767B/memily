@@ -2,7 +2,7 @@
 
 extern char __initialStackPointer;
 
-typedef void (* pvf)();
+typedef void (*pvf)();
 
 extern "C" void reset_handler();
 extern "C" void default_exception_handler();
