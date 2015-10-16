@@ -15,7 +15,6 @@ void reset_handler()
   crt::init_ctors();
   // TODO mcal::wdg::secure::trigger();
 
-  // call main (and hopefully never return)
-  main();
-  while(1);
+  main(); // call user-main
+  while(1); // should never get here! todo: trap, log, hunk, etc.
 }
