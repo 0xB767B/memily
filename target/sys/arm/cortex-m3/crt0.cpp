@@ -4,10 +4,10 @@ namespace crt
   void InitCtors();
 }
 
-extern "C" void ResetHandler() __attribute__((used, noinline));
+extern "C" void reset_handler() __attribute__((used, noinline));
 extern "C" int main();
 
-void ResetHandler()
+void reset_handler()
 {
   // TODO  mcal::cpu::init();
   crt::InitRam();

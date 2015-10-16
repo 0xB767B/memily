@@ -15,7 +15,7 @@ MEMORY
   RAM(rwx) : ORIGIN = 0x20000000, LENGTH = 0x1C00
 }
 
-ENTRY(ResetHandler)
+ENTRY(reset_handler)
 
 SECTIONS
 {
