@@ -10,12 +10,22 @@ Then, to generate the makefiles:
 
     $ cmake .. -DCMAKE_TOOLCHAIN_FILE=../gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG
 
-Or to generate a Eclipse project:
+# Debugging
 
-    $ cmake .. -DCMAKE_MODULE_PATH=/home/sul/git/memily/cmake \ 
-    -DCMAKE_TOOLCHAIN_FILE=../memily/cmake/gcc-STM32.cmake \
-    -DCMAKE_BUILD_TYPE=DEBUG -G"Eclipse CDT4 - Unix Makefiles" \ 
-    -DCMAKE_ECLIPSE_EXECUTABLE=/home/sul/git/embcdt/linux/eclipse/eclipse
+To debug the example using openOCD and the Nucleo-103rb board:
+
+    $ openocd.exe -f board/st_nucleo_f103rb.cfg
+    $ arm-none-eabi-gdb blinky.elf
+
+Then in gdb:
+
+    (gdb) target remote localhost:3333
+    (gdb) monitor reset halt
+    (gdb) load
+    (gdb) b main
+    (gdb) c
+    
+Program execution is now stopped at beginning of main.
 
 # External Information
 
