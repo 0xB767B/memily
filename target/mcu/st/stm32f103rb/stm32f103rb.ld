@@ -47,28 +47,28 @@ SECTIONS
   /* rom-to-ram initialized data section */
   .data :
   {
-    _dataBegin = .;
+    _data_begin = .;
     *(.data)
     . = ALIGN(4);
     KEEP (*(.data))
     *(.data*)
     . = ALIGN(4);
     KEEP (*(.data*))
-    _dataEnd = .;
+    _data_end = .;
   } > RAM AT > ROM
 
   /* uninitialized (zero-cleared) data section */
   .bss :
   {
-    _bssBegin = .;
+    _bss_begin = .;
     *(.bss)
     . = ALIGN(4);
     KEEP (*(.bss))
     *(.bss*)
     . = ALIGN(4);
     KEEP (*(.bss*))
-    _bssEnd = .;
+    _bss_end = .;
   } > RAM
 
-  _romDataBegin = LOADADDR(.data);
+  _rom_data_begin = LOADADDR(.data);
 }
