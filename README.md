@@ -26,15 +26,3 @@ Then in gdb:
     (gdb) c
     
 Program execution is now stopped at beginning of main.
-
-# External Information
-
-## The Problem with linking the Sys-Code
-
-* [isr_vectors variable not found when placed inside a static library](http://stackoverflow.com/questions/28949121/isr-vectors-variable-not-found-when-placed-inside-a-static-library)
-
-* [Lost static objects in static libraries with GNU linker ld](http://www.lysium.de/blog/index.php?/archives/222-Lost-static-objects-in-static-libraries-with-GNU-linker-ld.html)
-
-# Markdown
-
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
