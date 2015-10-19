@@ -1,21 +1,20 @@
 namespace crt
 {
-    void InitRam();
-    void InitCtors();
+    void init_ram();
+    void init_ctors();
 }
 
-extern "C" void ResetHandler() __attribute__((used, noinline));
+extern "C" void reset_handler() __attribute__((used, noinline));
 extern "C" int main();
 
-void ResetHandler()
+void reset_handler()
 {
   // TODO  mcal::cpu::init();
-  crt::InitRam();
+  crt::init_ram();
   // TODO mcal::wdg::secure::trigger();
-  crt::InitCtors();
+  crt::init_ctors();
   // TODO mcal::wdg::secure::trigger();
 
-  // call main (and hopefully never return)
-  main();
-  while(1);
+  main(); // call user-main
+  while(1); // should never get here! todo: trap, log, hunk, etc.
 }
