@@ -1,8 +1,7 @@
 INCLUDE(CMakeForceCompiler)
 
 if(NOT TOOLCHAIN_PREFIX)
-#  set(TOOLCHAIN_PREFIX "/home/borealis/bin/toolchains/gcc-arm-none-eabi-4_9-2015q3")
-set(TOOLCHAIN_PREFIX "/home/sul/devel/toolchains/gcc-arm-none-eabi-4_9-2015q2")
+  set(TOOLCHAIN_PREFIX "/home/$ENV{USER}/bin/toolchains/gcc-arm-none-eabi-4_9-2015q3")
   message(STATUS "No TOOLCHAIN_PREFIX specified, using default: " ${TOOLCHAIN_PREFIX})
 endif()
 
