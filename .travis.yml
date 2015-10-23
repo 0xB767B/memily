@@ -8,8 +8,8 @@ before_script:
     - sudo apt-get install cmake gcc-arm-none-eabi --yes -qq
 
 script:
-    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG
-    - make -j 8
+    - mkdir build && cd build
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG && make -j 8
 
 
 
