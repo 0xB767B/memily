@@ -29,8 +29,7 @@
  * @tparam width the number of consecutive one bits in the
  * mask
  */
-template <unsigned offset, unsigned width>
-struct generate_mask_t
-{
-   enum { value = generate_unshifted_mask_t<width>::value << offset };
+template<unsigned offset, unsigned width>
+struct generate_mask_t {
+  enum { value = generate_unshifted_mask_t<width>::value << offset };
 };

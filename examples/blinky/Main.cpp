@@ -19,8 +19,7 @@
 #include "stm32f103rb_rcc.h"
 #include "stm32f103rb_gpio.h"
 
-int main()
-{
+int main() {
   static int foo;
   foo = 2;
 
@@ -36,7 +35,7 @@ int main()
   cnf::write(0);
 
   while(1) {
-	  foo *= foo;
+    foo *= foo;
 
     odr::write(1);
     for(auto i = 0; i < 625000; ++i) {

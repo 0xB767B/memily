@@ -24,17 +24,15 @@
  * significant bit of the word.
  * @tparam width the number of bits in the mask
  */
-template <unsigned width>
-struct generate_unshifted_mask_t
-{
-   enum { value = (generate_unshifted_mask_t<width - 1>::value << 1) | 1 };
+template<unsigned width>
+struct generate_unshifted_mask_t {
+  enum { value = (generate_unshifted_mask_t<width - 1>::value << 1) | 1 };
 };
 
 /**
  * Base case.
  */
-template <>
-struct generate_unshifted_mask_t<0>
-{
-   enum { value = 0 };
+template<>
+struct generate_unshifted_mask_t<0> {
+  enum { value = 0 };
 };

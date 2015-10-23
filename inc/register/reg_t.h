@@ -48,65 +48,60 @@
  * @tparam width the width of the subregister in bits
  */
 template
-<
-   typename mutability_policy_t,
-   unsigned address,
-   unsigned offset,
-   unsigned width
->
-struct reg_t
-{
-   static_assert(width > 0, "invalid field of zero width");
-   static_assert(width + offset <= std::numeric_limits<unsigned>::digits,
-      "register width overflow");
+    <
+        typename mutability_policy_t,
+        unsigned address,
+        unsigned offset,
+        unsigned width
+    >
+struct reg_t {
+  static_assert(width > 0, "invalid field of zero width");
+  static_assert(width + offset <= std::numeric_limits<unsigned>::digits,
+                "register width overflow");
 
-   /**
-    * Read the subregister.
-    * @return the value
-    */
-   static unsigned read()
-   {
-      return
-         mutability_policy_t::read(
-            reinterpret_cast<volatile unsigned *>(address),
+  /**
+   * Read the subregister.
+   * @return the value
+   */
+  static unsigned read() {
+    return
+        mutability_policy_t::read(
+            reinterpret_cast<volatile unsigned*>(address),
             offset,
             generate_mask_t<offset, width>::value
-         );
-   }
+        );
+  }
 
-   /**
-    * Write a subregister.
-    * @param value the new value
-    */
-   static void write(unsigned value)
-   {
-      mutability_policy_t::write(
-         reinterpret_cast<volatile unsigned *>(address),
-         offset,
-         generate_mask_t<offset, width>::value,
-         value
-      );
-   }
+  /**
+   * Write a subregister.
+   * @param value the new value
+   */
+  static void write(unsigned value) {
+    mutability_policy_t::write(
+        reinterpret_cast<volatile unsigned*>(address),
+        offset,
+        generate_mask_t<offset, width>::value,
+        value
+    );
+  }
 
-   /**
-    * Set all bits in the subregister to one.
-    */
-   static void set()
-   {
-      mutability_policy_t::set(
-         reinterpret_cast<volatile unsigned *>(address),
-         generate_mask_t<offset, width>::value
-      );
-   }
+  /**
+   * Set all bits in the subregister to one.
+   */
+  static void set() {
+    mutability_policy_t::set(
+        reinterpret_cast<volatile unsigned*>(address),
+        generate_mask_t<offset, width>::value
+    );
+  }
 
-   /**
-    * Clear all bits in the subregister to zero.
-    */
-   static void clear()
-   {
-      mutability_policy_t::clear(
-         reinterpret_cast<volatile unsigned *>(address),
-         generate_mask_t<offset, width>::value
-      );
-   }
+  /**
+   * Clear all bits in the subregister to zero.
+   */
+  static void clear() {
+    mutability_policy_t::clear(
+        reinterpret_cast<volatile unsigned*>(address),
+        generate_mask_t<offset, width>::value
+    );
+  }
 };
