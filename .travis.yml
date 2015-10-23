@@ -1,0 +1,20 @@
+before_script:
+    - sudo apt-get update -qq
+    - sudo apt-get install cmake
+    - pushd ~
+    - mkdir bin
+    - cd bin
+    - mkdir toolchains
+    - cd toolchains
+    - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+    - tar xvf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+    - popd
+
+script:
+    - mkdir build
+    - cd build
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG
+    - make -j 8
+
+
+
