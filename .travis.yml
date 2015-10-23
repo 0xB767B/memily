@@ -11,7 +11,7 @@ before_script:
 
 script:
     - mkdir build && cd build
-    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG && make -j 8 -DTOOLCHAIN_PREFIX=/home/travis/build/0xB767B/memily/toolchain/gcc-arm-none-eabi-4_9-2015q3
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=/home/travis/build/0xB767B/memily/toolchain/gcc-arm-none-eabi-4_9-2015q3 && make -j 8
 
 
 
