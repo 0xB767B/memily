@@ -8,7 +8,7 @@ install:
     - export TOOLCHAIN_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
 
 before_script:
-    - $TC_DIR/bin/arm-none-eabi-gcc --version
+    - ${TOOLCHAIN_DIR}/bin/arm-none-eabi-gcc --version
 
 script:
     - mkdir build && cd build
