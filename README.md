@@ -1,5 +1,6 @@
 # MEMILY [![Build Status](https://travis-ci.org/0xB767B/memily.svg?branch=master)](https://travis-ci.org/0xB767B/memily)
 
+Meta Microcontroller Library intended to be a pure C++ replacement for ARM-CMSIS.
 
 # Building
 
