@@ -1,29 +1,19 @@
 language: cpp
 
-before_script:
-    - sudo apt-get update -qq
+before_install:
+    - sudo apt-get update
     - sudo apt-get install cmake --yes -qq
-    - pushd /opt/
-    - sudo mkdir toolchain
-#    - pushd toolchain
-    - cd toolchain
-    - sudo wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-    - sudo tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-    - sudo cd gcc-arm-none-eabi-4_9-2015q3
-    - export TC_DIR=${PWD}
-    - echo "$TC_DIR"
-    - ${TC_DIR}/bin/arm-none-eabi-g++ --version
-    - ls -l
-    - pwd
-    - cd bin
-    - ls -l
-    - pwd
-    - popd
+
+install:
+    - tar -xf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
+    - export TC_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
+
+before_script:
+    - echo $TC_DIR
+    - $TC_DIR/bin/arm-none-eabi-gcc --version
 
 script:
-    - echo "$TC_DIR"
-    - ls -l ${TC_DIR}/bin
-    - ${TC_DIR}/bin/arm-none-eabi-g++ --version
+    - $TC_DIR/bin/arm-none-eabi-g++ --version
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
 
