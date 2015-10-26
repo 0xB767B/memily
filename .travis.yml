@@ -1,24 +1,16 @@
 language: cpp
 
-before_install:
+install:
     - sudo apt-get update
     - sudo apt-get install cmake lib32z1 lib32ncurses5 lib32bz2-1.0 --yes -qq
     - wget "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2"
-
-install:
     - tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - export TC_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
-    - echo $TC_DIR
-    - cd $TC_DIR/bin/
-    - ls -l
-    - ./arm-none-eabi-gcc --version
 
 before_script:
-    - echo $TC_DIR
     - $TC_DIR/bin/arm-none-eabi-gcc --version
 
 script:
-    - $TC_DIR/bin/arm-none-eabi-g++ --version
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
 
