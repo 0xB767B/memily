@@ -8,6 +8,8 @@ before_script:
     - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - cd gcc-arm-none-eabi-4_9-2015q3
+    - export TC_DIR=${PWD}
+    - echo "$TC_DIR"
     - ls -l
     - pwd
     - cd bin
@@ -17,7 +19,7 @@ before_script:
 
 script:
     - mkdir build && cd build
-    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=/home/travis/build/0xB767B/memily/toolchain/gcc-arm-none-eabi-4_9-2015q3 && make -j 8
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
 
 
 
