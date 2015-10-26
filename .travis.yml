@@ -3,9 +3,10 @@ language: cpp
 before_install:
     - sudo apt-get update
     - sudo apt-get install cmake --yes -qq
+    - wget "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2"
 
 install:
-    - tar -xf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
+    - tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - export TC_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
 
 before_script:
