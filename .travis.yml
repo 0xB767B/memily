@@ -20,7 +20,7 @@ before_script:
 
 script:
     - echo "$TC_DIR"
-    - ls -l ${TC_DIR}
+    - ls -l ${TC_DIR}/bin
     - ${TC_DIR}/bin/arm-none-eabi-g++ --version
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
