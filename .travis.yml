@@ -11,7 +11,7 @@ install:
     - echo $TC_DIR
     - cd $TC_DIR/bin/
     - ls -l
-    - $TC_DIR/bin/arm-none-eabi-gcc --version
+    - ./arm-none-eabi-gcc --version
 
 before_script:
     - echo $TC_DIR
