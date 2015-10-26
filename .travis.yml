@@ -10,6 +10,7 @@ before_script:
     - cd gcc-arm-none-eabi-4_9-2015q3
     - export TC_DIR=${PWD}
     - echo "$TC_DIR"
+    - ${TC_DIR}/bin/arm-none-eabi-g++ --version
     - ls -l
     - pwd
     - cd bin
@@ -20,6 +21,7 @@ before_script:
 script:
     - echo "$TC_DIR"
     - ls -l ${TC_DIR}
+    - ${TC_DIR}/bin/arm-none-eabi-g++ --version
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
 
