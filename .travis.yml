@@ -6,7 +6,7 @@ before_script:
     - pushd /opt/
     - sudo mkdir toolchain
 #    - pushd toolchain
-    - sudo cd toolchain
+    - cd toolchain
     - sudo wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - sudo tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - sudo cd gcc-arm-none-eabi-4_9-2015q3
