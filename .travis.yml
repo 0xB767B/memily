@@ -5,14 +5,14 @@ install:
     - sudo apt-get install cmake lib32z1 lib32ncurses5 lib32bz2-1.0 --yes -qq
     - wget "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2"
     - tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-    - export TC_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
+    - export TOOLCHAIN_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
 
 before_script:
     - $TC_DIR/bin/arm-none-eabi-gcc --version
 
 script:
     - mkdir build && cd build
-    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TC_DIR} && make -j 8
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-STM32.cmake -DCMAKE_BUILD_TYPE=DEBUG -DTOOLCHAIN_PREFIX=${TOOLCHAIN_DIR} && make -j 8
 
 
 
