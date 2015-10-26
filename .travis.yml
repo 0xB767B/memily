@@ -8,6 +8,8 @@ before_install:
 install:
     - tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
     - export TC_DIR=$PWD/gcc-arm-none-eabi-4_9-2015q3
+    - echo $TC_DIR
+    - $TC_DIR/bin/arm-none-eabi-gcc --version
 
 before_script:
     - echo $TC_DIR
