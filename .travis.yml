@@ -3,11 +3,13 @@ language: cpp
 before_script:
     - sudo apt-get update -qq
     - sudo apt-get install cmake --yes -qq
-    - mkdir toolchain
-    - pushd toolchain
-    - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-    - tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-    - cd gcc-arm-none-eabi-4_9-2015q3
+    - pushd /opt/
+    - sudo mkdir toolchain
+#    - pushd toolchain
+    - sudo cd toolchain
+    - sudo wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+    - sudo tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+    - sudo cd gcc-arm-none-eabi-4_9-2015q3
     - export TC_DIR=${PWD}
     - echo "$TC_DIR"
     - ${TC_DIR}/bin/arm-none-eabi-g++ --version
