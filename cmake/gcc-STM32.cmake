@@ -18,17 +18,25 @@
 
 INCLUDE(CMakeForceCompiler)
 
-if(NOT TOOLCHAIN_PREFIX)
-  message(FATAL_ERROR " ------- No TOOLCHAIN_PREFIX specified! -------")
-endif()
-
 if(NOT TARGET_TRIPLET)
   set(TARGET_TRIPLET "arm-none-eabi")
   message(STATUS "No TARGET_TRIPLET specified, using default: " ${TARGET_TRIPLET})
 endif()
 
+# find compiler if it is in path
+find_path(TOOLCHAIN_PREFIX ${TARGET_TRIPLET}-gcc)
+
+if("${TOOLCHAIN_PREFIX}" MATCHES ".*-NOTFOUND.*")
+  message(FATAL_ERROR " ------- No compiler found! Provide path to compiler via TOOLCHAIN_PREFIX -------")
+else()
+  # strip bin from toolchain-prefix
+  string(REGEX REPLACE "/bin$" "" TOOLCHAIN_PREFIX ${TOOLCHAIN_PREFIX})
+endif()
+
 set(TOOLCHAIN_BIN_DIR ${TOOLCHAIN_PREFIX}/bin)
+# todo what is TOOLCHAIN_INC_DIR needed for?
 set(TOOLCHAIN_INC_DIR ${TOOLCHAIN_PREFIX}/${TARGET_TRIPLET}/include)
+# todo what is TOOLCHAIN_LIB_DIR needed for?
 set(TOOLCHAIN_LIB_DIR ${TOOLCHAIN_PREFIX}/${TARGET_TRIPLET}/lib)
 
 set(CMAKE_SYSTEM_NAME Generic)
