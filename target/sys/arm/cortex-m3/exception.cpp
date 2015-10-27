@@ -27,7 +27,7 @@ extern "C" void default_exception_handler();
 
 namespace exception {
     __attribute__ ((section(".exception_vector"),used))
-    pvf exceptionVector[] = {
+    pvf exception_vector[] = {
             pvf(&__initialStackPointer),
             reset_handler,// 0x0004
             nmi_handler,// 0x0008

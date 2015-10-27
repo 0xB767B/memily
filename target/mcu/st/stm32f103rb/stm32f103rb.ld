@@ -40,9 +40,14 @@ SECTIONS
   /* program code (text), read-only data and static ctors */
   .text :
   {
+    _vectors_begin = .;
+    _exceptions_begin = .;
     KEEP(*(.exception_vector))
-    /* . = 0x080000ED; todo: temporary. should be correctly aligned by adding interrupt-vectors for mcu */
-    _VECTORS_END = .;
+    _exceptions_end = .;
+    _irqs_begin = .;
+    KEEP(*(.irq_vector))
+    _irqs_end = .;
+    _vectors_end = .;
     _ctors_begin = .;
     *(.init_array)
     . = ALIGN(4);
@@ -57,7 +62,6 @@ SECTIONS
     *(.rodata*)
     . = ALIGN(4);
   } > ROM
-
 
   . = 0x20000000;
   . = ALIGN(4);
