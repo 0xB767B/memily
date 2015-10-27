@@ -17,7 +17,6 @@
 #
 
 collect_sources(Main.cpp)
-#get_property(BLINKY_SOURCES GLOBAL PROPERTY GlobalSourceList)
 get_collected_sources(BLINKY_SOURCES)
 
 include_directories(
