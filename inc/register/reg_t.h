@@ -23,7 +23,7 @@
 #include "generate_mask_t.h"
 
 /**
- * Model an MMIO register.
+ * Model a memory mapped (io) register.
  *
  * Allows policy-based configuration of hardware registers
  * to give compile-time assurances.  For example, your
@@ -48,13 +48,8 @@
  * bit within the register for the subregister
  * @tparam width the width of the subregister in bits
  */
-template
-    <
-        typename mutability_policy_t,
-        uint32_t address,
-        unsigned int offset,
-        unsigned int width
-    >
+template<typename mutability_policy_t, uint32_t address, unsigned int offset,
+    unsigned int width>
 struct reg_t {
   static_assert(width > 0, "invalid field of zero width");
   static_assert(width + offset <= std::numeric_limits<uint32_t>::digits,
@@ -65,12 +60,9 @@ struct reg_t {
    * @return the value
    */
   static uint32_t read() {
-    return
-        mutability_policy_t::read(
-            reinterpret_cast<volatile uint32_t*>(address),
-            offset,
-            generate_mask_t<offset, width>::value
-        );
+    return mutability_policy_t::read(
+        reinterpret_cast<volatile uint32_t*>(address),
+        offset, generate_mask_t<offset, width>::value);
   }
 
   /**
@@ -78,31 +70,24 @@ struct reg_t {
    * @param value the new value
    */
   static void write(uint32_t value) {
-    mutability_policy_t::write(
-        reinterpret_cast<volatile uint32_t*>(address),
-        offset,
-        generate_mask_t<offset, width>::value,
-        value
-    );
+    mutability_policy_t::write(reinterpret_cast<volatile uint32_t*>(address),
+                               offset, generate_mask_t<offset, width>::value,
+                               value);
   }
 
   /**
    * Set all bits in the subregister to one.
    */
   static void set() {
-    mutability_policy_t::set(
-        reinterpret_cast<volatile uint32_t*>(address),
-        generate_mask_t<offset, width>::value
-    );
+    mutability_policy_t::set(reinterpret_cast<volatile uint32_t*>(address),
+                             generate_mask_t<offset, width>::value);
   }
 
   /**
    * Clear all bits in the subregister to zero.
    */
   static void clear() {
-    mutability_policy_t::clear(
-        reinterpret_cast<volatile uint32_t*>(address),
-        generate_mask_t<offset, width>::value
-    );
+    mutability_policy_t::clear(reinterpret_cast<volatile uint32_t*>(address),
+                               generate_mask_t<offset, width>::value);
   }
 };
