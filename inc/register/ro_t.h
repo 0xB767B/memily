@@ -22,8 +22,8 @@
  * A read-only mutability policy for use with reg_t.
  */
 struct ro_t {
-  static unsigned read(volatile unsigned* device, unsigned offset,
-                       unsigned mask) {
+  static uint32_t read(volatile uint32_t* device, unsigned int offset,
+                       uint32_t mask) {
     return (*device & mask) >> offset;
   }
 };

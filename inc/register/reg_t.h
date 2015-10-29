@@ -18,8 +18,9 @@
 
 #pragma once
 
-#include "generate_mask_t.h"
 #include <limits>
+#include <cstdint>
+#include "generate_mask_t.h"
 
 /**
  * Model an MMIO register.
@@ -50,23 +51,23 @@
 template
     <
         typename mutability_policy_t,
-        unsigned address,
-        unsigned offset,
-        unsigned width
+        uint32_t address,
+        unsigned int offset,
+        unsigned int width
     >
 struct reg_t {
   static_assert(width > 0, "invalid field of zero width");
-  static_assert(width + offset <= std::numeric_limits<unsigned>::digits,
+  static_assert(width + offset <= std::numeric_limits<uint32_t>::digits,
                 "register width overflow");
 
   /**
    * Read the subregister.
    * @return the value
    */
-  static unsigned read() {
+  static uint32_t read() {
     return
         mutability_policy_t::read(
-            reinterpret_cast<volatile unsigned*>(address),
+            reinterpret_cast<volatile uint32_t*>(address),
             offset,
             generate_mask_t<offset, width>::value
         );
@@ -76,9 +77,9 @@ struct reg_t {
    * Write a subregister.
    * @param value the new value
    */
-  static void write(unsigned value) {
+  static void write(uint32_t value) {
     mutability_policy_t::write(
-        reinterpret_cast<volatile unsigned*>(address),
+        reinterpret_cast<volatile uint32_t*>(address),
         offset,
         generate_mask_t<offset, width>::value,
         value
@@ -90,7 +91,7 @@ struct reg_t {
    */
   static void set() {
     mutability_policy_t::set(
-        reinterpret_cast<volatile unsigned*>(address),
+        reinterpret_cast<volatile uint32_t*>(address),
         generate_mask_t<offset, width>::value
     );
   }
@@ -100,7 +101,7 @@ struct reg_t {
    */
   static void clear() {
     mutability_policy_t::clear(
-        reinterpret_cast<volatile unsigned*>(address),
+        reinterpret_cast<volatile uint32_t*>(address),
         generate_mask_t<offset, width>::value
     );
   }

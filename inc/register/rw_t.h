@@ -24,16 +24,16 @@
  * A read-only mutability policy for use with reg_t.
  */
 struct rw_t : ro_t {
-  static void write(volatile unsigned* device, unsigned offset, unsigned mask,
-                    unsigned value) {
+  static void write(volatile uint32_t* device, unsigned int offset, uint32_t mask,
+                    uint32_t value) {
     *device = (*device & ~mask) | ((value << offset) & mask);
   }
 
-  static void set(volatile unsigned* device, unsigned mask) {
+  static void set(volatile uint32_t* device, uint32_t mask) {
     *device |= mask;
   }
 
-  static void clear(volatile unsigned* device, unsigned mask) {
+  static void clear(volatile uint32_t* device, uint32_t mask) {
     *device &= ~mask;
   }
 };

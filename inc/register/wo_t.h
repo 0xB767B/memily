@@ -22,12 +22,12 @@
  * A write-only mutability policy for use with reg_t.
  */
 struct wo_t {
-  static void write(volatile unsigned* device, unsigned offset, unsigned mask,
-                    unsigned value) {
+  static void write(volatile uint32_t* device, unsigned int offset, unsigned int mask,
+                    unsigned int value) {
     *device = ((value << offset) & mask);
   }
 
-  static void set(volatile unsigned* device, unsigned mask) {
+  static void set(volatile uint32_t* device, unsigned int mask) {
     *device = mask;
   }
 };
